@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema utama aplikasi Anda -->
+    <style name="Theme.FrnsMobile_Bangunan" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- ... kode tema Anda ... -->
+    </style>
+
+    <!-- ✅ Tema Khusus Splash Screen -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!-- Warna latar belakang splash screen (Hitam Navy) -->
+        <item name="windowSplashScreenBackground">#0B132B</item>
+
+        <!-- Ikon yang muncul di tengah splash screen -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/bgunanni</item>
+
+        <!-- Tema yang akan digunakan SETELAH splash screen selesai -->
+        <item name="postSplashScreenTheme">@style/Theme.FrnsMobile_Bangunan</item>
+    </style>
+</resources>
