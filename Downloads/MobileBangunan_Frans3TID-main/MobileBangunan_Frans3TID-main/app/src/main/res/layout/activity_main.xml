@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="?android:attr/windowBackground"
+    tools:context=".MainActivity">
+
+    <!-- Tombol ini menggunakan warna hijau tetap -->
+    <Button
+        android:id="@+id/btn_my_project"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:backgroundTint="@color/green_500"
+        android:text="@string/btn_my_project"
+        android:textColor="@color/white" />
+
+    <!-- Tombol ini otomatis berubah warna sesuai Light / Dark mode -->
+    <Button
+        android:id="@+id/btn_projek_uas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="uas" />
+
+    <!-- Tombol ini digunakan sebagai pengubah mode Light / Dark -->
+    <Button
+        android:id="@+id/btnpelangg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toggle Light / Dark Mode" />
+
+</LinearLayout>

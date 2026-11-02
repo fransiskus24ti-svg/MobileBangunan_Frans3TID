@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FrnsMobile_Bangunan"
+        tools:targetApi="31">
+
+        <!-- ✅ SPLASH ACTIVITY SEBAGAI TAMPILAN AWAL (LAUNCHER) -->
+        <activity
+            android:name=".projek.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.FrnsMobile_Bangunan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 👇 LOGIN ACTIVITY (BUKAN LAGI JADI TAMPILAN AWAL) 👇 -->
+        <activity
+            android:name=".projek.loginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 👇 MAIN ACTIVITY 👇 -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <!-- Activity Lainnya -->
+        <activity
+            android:name=".SnackDetailActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".projek.beradaActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".projek.RegisterActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".projek.VerifikasiActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+    </application>
+
+</manifest>

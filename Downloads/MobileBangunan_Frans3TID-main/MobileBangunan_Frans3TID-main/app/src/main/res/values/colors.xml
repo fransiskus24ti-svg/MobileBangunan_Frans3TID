@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Warna Dasar Tambahan -->
+    <color name="green_500">#4CAF50</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="teal_accent">#50E3C2</color>
+
+    <!-- Warna Light Mode (Dibutuhkan oleh themes.xml) -->
+    <color name="bg_main_light">#F8F9FA</color>
+    <color name="card_bg_light">#FFFFFF</color>
+    <color name="text_primary_light">#1F2937</color>
+    <color name="text_secondary_light">#6B7280</color>
+    <color name="btn_bg_light">#2196F3</color>
+    <color name="btn_text_light">#FFFFFF</color>
+
+    <!-- Warna Dark Mode (Dibutuhkan oleh themes-night.xml) -->
+    <color name="bg_main_dark">#0D1527</color>
+    <color name="card_bg_dark">#18233C</color>
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_secondary_dark">#9CA3AF</color>
+    <color name="btn_bg_dark">#1E293B</color>
+    <color name="btn_text_dark">#E2E8F0</color>
+</resources>

@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Theme Utama (Light Mode) -->
+    <style name="Theme.FrnsMobile_Bangunan" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Warna Latar Belakang & Teks Utama -->
+        <item name="android:windowBackground">@color/bg_main_light</item>
+        <item name="colorSurface">@color/card_bg_light</item>
+        <item name="colorOnSurface">@color/text_primary_light</item>
+        <item name="android:textColorPrimary">@color/text_primary_light</item>
+        <item name="android:textColorSecondary">@color/text_secondary_light</item>
+    </style>
+</resources>
