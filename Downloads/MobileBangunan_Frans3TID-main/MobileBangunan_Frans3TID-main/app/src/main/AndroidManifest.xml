@@ -53,6 +53,9 @@
             android:name=".projek.VerifikasiActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".projek.OnboardingActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

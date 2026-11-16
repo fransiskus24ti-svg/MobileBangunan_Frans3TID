@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.GridView
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
@@ -21,12 +22,12 @@ import java.util.Locale
 
 class HomeFragment : Fragment() {
 
+    private lateinit var gvLayanan: GridView
     private lateinit var rvKategori: RecyclerView
     private lateinit var rvFlashSale: RecyclerView
     private lateinit var rvProduk: RecyclerView
     private lateinit var etSearch: EditText
 
-    // Register Activity Result Launcher untuk Voice Search
     private val voiceLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK && result.data != null) {
             val spokenText = result.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.get(0)
@@ -45,6 +46,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        gvLayanan   = view.findViewById(R.id.gvLayanan)
         rvKategori  = view.findViewById(R.id.rvKategori)
         rvFlashSale = view.findViewById(R.id.rvFlashSale)
         rvProduk    = view.findViewById(R.id.rvProduk)
@@ -55,7 +57,6 @@ class HomeFragment : Fragment() {
             false
         }
 
-        // Event listener klik tombol Voice Search
         view.findViewById<ImageButton>(R.id.ibVoiceSearch).setOnClickListener {
             startVoiceRecognition()
         }
@@ -67,9 +68,22 @@ class HomeFragment : Fragment() {
             Toast.makeText(requireContext(), "Buka Notifikasi", Toast.LENGTH_SHORT).show()
         }
 
+        setupLayananCustomAdapter()
         setupKategori()
         setupFlashSale()
         setupProduk()
+    }
+
+    private fun setupLayananCustomAdapter() {
+        val dataLayanan = listOf(
+            LayananModel("Kalkulator\nMaterial", R.drawable.ic_edit),
+            LayananModel("Pencarian\nTukang", R.drawable.ic_search),
+            LayananModel("Terhubung\nBengkel", R.drawable.ic_location)
+        )
+        gvLayanan.adapter = LayananCustomAdapter(requireContext(), dataLayanan)
+        gvLayanan.setOnItemClickListener { _, _, position, _ ->
+            Toast.makeText(requireContext(), "Layanan: ${dataLayanan[position].nama.replace("\n", " ")}", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun startVoiceRecognition() {

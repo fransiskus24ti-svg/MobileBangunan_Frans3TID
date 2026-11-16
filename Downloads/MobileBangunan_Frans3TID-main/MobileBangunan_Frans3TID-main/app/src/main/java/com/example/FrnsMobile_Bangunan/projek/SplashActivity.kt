@@ -15,9 +15,8 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashActivity, loginActivity::class.java)
+            val intent = Intent(this@SplashActivity, OnboardingActivity::class.java)
             startActivity(intent)
             finish()
         }, 2000)

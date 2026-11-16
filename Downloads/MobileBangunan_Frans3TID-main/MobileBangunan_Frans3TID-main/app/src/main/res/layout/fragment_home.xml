@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/windowBackground">
+    android:background="@drawable/bg_home_gradient">
 
     <!-- TOP BAR SEARCH & LOKASI -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,8 +80,8 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:hint="Cari semen, besi, cat..."
-                android:textColor="?android:attr/textColorPrimary"
-                android:textColorHint="?android:attr/textColorSecondary"
+                android:textColor="#000000"
+                android:textColorHint="#757575"
                 android:textSize="14sp" />
 
             <ImageButton
@@ -91,7 +91,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Voice Search"
                 android:src="@android:drawable/ic_btn_speak_now"
-                app:tint="#333333 "/>
+                app:tint="#333333" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -139,7 +139,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="Diskon Semen &amp; Baja Ringan s/d 25%"
-                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColor="#FFFFFF"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -179,96 +179,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:text="Layanan Konstruksi Cepat"
-                android:textColor="?android:attr/textColorPrimary"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <!-- MENU LAYANAN -->
-            <LinearLayout
+            <!-- GRIDVIEW UNTUK CUSTOM ADAPTER -->
+            <GridView
+                android:id="@+id/gvLayanan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="115dp"
                 android:layout_marginBottom="24dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:layout_weight="1"
-                    android:background="?attr/colorSurface"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_edit"
-                        app:tint="#6FFFE9" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Kalkulator\nMaterial"
-                        android:textAlignment="center"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"
-                    android:background="?attr/colorSurface"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_search"
-                        app:tint="#6FFFE9" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Pencarian\nTukang"
-                        android:textAlignment="center"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1"
-                    android:background="?attr/colorSurface"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_location"
-                        app:tint="#6FFFE9" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Terhubung\nBengkel"
-                        android:textAlignment="center"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-            </LinearLayout>
+                android:horizontalSpacing="8dp"
+                android:numColumns="3"
+                android:verticalSpacing="8dp"
+                tools:listitem="@layout/item_kategori" />
 
             <!-- KATEGORI MATERIAL -->
             <LinearLayout
@@ -282,7 +206,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Kategori Material"
-                    android:textColor="?android:attr/textColorPrimary"
+                    android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -350,7 +274,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:text="Rekomendasi Terlaris"
-                android:textColor="?android:attr/textColorPrimary"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
