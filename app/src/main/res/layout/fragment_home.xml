@@ -5,71 +5,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0B132B"> <!-- Background Utama Hitam Navy -->
+    android:background="#F8FAFC">
 
-    <!-- TOP BAR SEARCH & LOKASI -->
+    <!-- TOP BAR: LOKASI, IKON AKSI & PENCARIAN -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#1C2541"
-        android:elevation="6dp"
-        android:padding="12dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:paddingHorizontal="18dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="16dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/ivLocation"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:src="@drawable/ic_location"
+            app:layout_constraintBottom_toBottomOf="@+id/tvLocation"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="#6FFFE9" />
+            app:layout_constraintTop_toTopOf="@+id/tvLocation"
+            app:tint="#0038A8" />
 
         <TextView
             android:id="@+id/tvLocation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
-            android:text="Dikirim ke Toko Bangunan Frans"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:text="Dikirim ke Toko Bangunan WestBuild"
+            android:textColor="#0F172A"
+            android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/ivCart"
             app:layout_constraintStart_toEndOf="@+id/ivLocation"
-            app:layout_constraintTop_toTopOf="@+id/ivLocation" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ivCart"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="Keranjang Belanja"
             android:src="@drawable/ic_cart"
+            app:layout_constraintBottom_toBottomOf="@+id/tvLocation"
             app:layout_constraintEnd_toStartOf="@+id/ivNotif"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="#5BC0BE" />
+            app:layout_constraintTop_toTopOf="@+id/tvLocation"
+            app:tint="#0F172A" />
 
         <ImageView
             android:id="@+id/ivNotif"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="16dp"
+            android:contentDescription="Notifikasi"
             android:src="@drawable/ic_notifications"
+            app:layout_constraintBottom_toBottomOf="@+id/tvLocation"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="#5BC0BE" />
+            app:layout_constraintTop_toTopOf="@+id/tvLocation"
+            app:tint="#0F172A" />
 
+        <!-- KOLOM PENCARIAN -->
         <EditText
             android:id="@+id/etSearch"
             android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="12dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="14dp"
             android:background="@drawable/bg_input"
-            android:hint="Cari semen, besi, cat..."
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColor="#000000"
-            android:textColorHint="#757575"
-            android:textSize="14sp"
+            android:backgroundTint="#F1F5F9"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="10dp"
+            android:drawableTint="#64748B"
+            android:fontFamily="sans-serif"
+            android:hint="Cari semen, besi, cat, perkakas..."
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:singleLine="true"
+            android:textColor="#0F172A"
+            android:textColorHint="#64748B"
+            android:textSize="13sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
@@ -79,6 +99,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBar">
 
@@ -86,69 +107,120 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="18dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="28dp">
 
-            <!-- BANNER PROMO (SUDAH DIPERBAIKI PADDING & TINGGI) -->
+            <!-- BANNER PROMO MODERN (DESAIN VEKTOR BERSIH) -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_marginTop="4dp"
+                android:layout_height="176dp"
                 android:layout_marginBottom="24dp"
-                app:cardCornerRadius="14dp"
+                app:cardBackgroundColor="#0038A8"
+                app:cardCornerRadius="18dp"
                 app:cardElevation="6dp"
-                app:strokeColor="#3A506B"
-                app:strokeWidth="1dp">
+                app:strokeWidth="0dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#1C2541"
-                    android:padding="16dp">
+                    android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:alpha="0.35"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/specialpromo" />
+                    <!-- AKSEN LINGKARAN DEKORATIF -->
+                    <View
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_marginEnd="-35dp"
+                        android:layout_marginBottom="-35dp"
+                        android:alpha="0.14"
+                        android:background="@drawable/bg_input"
+                        android:backgroundTint="#FFFFFF"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
 
-                    <TextView
-                        android:id="@+id/tvBannerTitle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Diskon Semen &amp; Baja Ringan s/d 25%"
-                        android:textColor="#FFFFFF"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
+                    <View
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_marginTop="-25dp"
+                        android:layout_marginEnd="30dp"
+                        android:alpha="0.08"
+                        android:background="@drawable/bg_input"
+                        android:backgroundTint="#93C5FD"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/tvBannerSubtitle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Berlaku sampai 30 November 2026"
-                        android:textColor="#5BC0BE"
-                        android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvBannerTitle" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnKlaim"
-                        android:layout_width="wrap_content"
-                        android:layout_height="38dp"
-                        android:text="Klaim Sekarang"
-                        android:textColor="#0B132B"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        app:backgroundTint="#6FFFE9"
-                        app:cornerRadius="20dp"
+                    <ImageView
+                        android:layout_width="76dp"
+                        android:layout_height="76dp"
+                        android:layout_marginEnd="20dp"
+                        android:alpha="0.25"
+                        android:src="@drawable/ic_cart"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#FFFFFF" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_input"
+                            android:backgroundTint="#1D4ED8"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.08"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="3dp"
+                            android:text="PROMO SPESIAL"
+                            android:textColor="#DBEAFE"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvBannerTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="56dp"
+                            android:fontFamily="@font/fraunces"
+                            android:text="Diskon Semen &amp; Baja Ringan s/d 25%"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvBannerSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="sans-serif"
+                            android:text="Berlaku sampai 30 November 2026"
+                            android:textColor="#BFDBFE"
+                            android:textSize="12sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnKlaim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:paddingHorizontal="18dp"
+                            android:text="Klaim Sekarang"
+                            android:textAllCaps="false"
+                            android:textColor="#0038A8"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:backgroundTint="#FFFFFF"
+                            app:cornerRadius="20dp" />
+                    </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -157,96 +229,160 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
+                android:fontFamily="@font/fraunces"
                 android:text="Layanan Konstruksi Cepat"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
+                android:textColor="#0F172A"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
-            <!-- MENU LAYANAN -->
+            <!-- MENU LAYANAN (3 KARTU PUTIH BERSIH) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="26dp"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
-                <LinearLayout
+                <!-- Kartu 1 -->
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
+                    android:layout_marginEnd="6dp"
                     android:layout_weight="1"
-                    android:background="#1C2541"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E2E8F0"
+                    app:strokeWidth="1dp">
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_edit"
-                        app:tint="#6FFFE9" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Kalkulator\nMaterial"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="11sp" />
-                </LinearLayout>
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="14dp">
 
-                <LinearLayout
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_input"
+                            android:backgroundTint="#EFF6FF">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_edit"
+                                app:tint="#0038A8" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Kalkulator\nMaterial"
+                            android:textAlignment="center"
+                            android:textColor="#1E293B"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Kartu 2 -->
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
-                    android:background="#1C2541"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E2E8F0"
+                    app:strokeWidth="1dp">
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_search"
-                        app:tint="#6FFFE9" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Pencarian\nTukang"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="11sp" />
-                </LinearLayout>
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="14dp">
 
-                <LinearLayout
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_input"
+                            android:backgroundTint="#EFF6FF">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_search"
+                                app:tint="#0038A8" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Pencarian\nTukang"
+                            android:textAlignment="center"
+                            android:textColor="#1E293B"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Kartu 3 -->
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
+                    android:layout_marginStart="6dp"
                     android:layout_weight="1"
-                    android:background="#1C2541"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E2E8F0"
+                    app:strokeWidth="1dp">
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_location"
-                        app:tint="#6FFFE9" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Terhubung\nBengkel"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="11sp" />
-                </LinearLayout>
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="14dp">
+
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_input"
+                            android:backgroundTint="#EFF6FF">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_location"
+                                app:tint="#0038A8" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Terhubung\nBengkel"
+                            android:textAlignment="center"
+                            android:textColor="#1E293B"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
             <!-- KATEGORI MATERIAL -->
@@ -254,22 +390,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/fraunces"
                     android:text="Kategori Material"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
+                    android:textColor="#0F172A"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
                     android:text="Semua Kategori >"
-                    android:textColor="#6FFFE9"
+                    android:textColor="#0038A8"
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -278,13 +417,14 @@
                 android:id="@+id/rvKategori"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="26dp"
+                android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="4"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_kategori" />
 
-            <!-- FLASH SALE -->
+            <!-- PROMO KILAT -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -295,20 +435,23 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Flash Sale Hari Ini"
-                    android:textColor="#FF5252"
-                    android:textSize="16sp"
+                    android:fontFamily="@font/fraunces"
+                    android:text="Promo Kilat Hari Ini"
+                    android:textColor="#DC2626"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:background="#3D1C25"
-                    android:paddingHorizontal="8dp"
+                    android:background="@drawable/bg_input"
+                    android:backgroundTint="#FEE2E2"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingHorizontal="10dp"
                     android:paddingVertical="4dp"
                     android:text="02:15:30"
-                    android:textColor="#FF5252"
+                    android:textColor="#DC2626"
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -317,7 +460,7 @@
                 android:id="@+id/rvFlashSale"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="26dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="3"
@@ -328,15 +471,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
+                android:fontFamily="@font/fraunces"
                 android:text="Rekomendasi Terlaris"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
+                android:textColor="#0F172A"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvProduk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="2"
                 tools:itemCount="4"

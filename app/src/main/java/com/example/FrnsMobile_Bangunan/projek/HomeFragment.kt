@@ -31,18 +31,19 @@ class HomeFragment : Fragment() {
         rvFlashSale = view.findViewById(R.id.rvFlashSale)
         rvProduk    = view.findViewById(R.id.rvProduk)
 
-
         val etSearch = view.findViewById<EditText>(R.id.etSearch)
         etSearch.setOnEditorActionListener { _, _, _ ->
             Toast.makeText(requireContext(), "Mencari: ${etSearch.text}", Toast.LENGTH_SHORT).show()
             false
         }
 
+        // Ikon Keranjang -> Langsung membuka KeranjangFragment
         view.findViewById<ImageView>(R.id.ivCart).setOnClickListener {
-            Toast.makeText(requireContext(), "Buka Keranjang", Toast.LENGTH_SHORT).show()
+            pindahKeFragment(KeranjangFragment())
         }
+
         view.findViewById<ImageView>(R.id.ivNotif).setOnClickListener {
-            Toast.makeText(requireContext(), "Buka Notifikasi", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Belum ada notifikasi baru", Toast.LENGTH_SHORT).show()
         }
 
         setupKategori()
@@ -62,8 +63,14 @@ class HomeFragment : Fragment() {
             KategoriModel("Bata", android.R.drawable.ic_menu_save)
         )
         rvKategori.layoutManager = GridLayoutManager(requireContext(), 4)
-        rvKategori.adapter = KategoriAdapter(listKategori) {
-            Toast.makeText(requireContext(), "Kategori: ${it.nama}", Toast.LENGTH_SHORT).show()
+        rvKategori.adapter = KategoriAdapter(listKategori) { kategori ->
+            val bundle = Bundle().apply {
+                putString("NAMA_KATEGORI", kategori.nama)
+            }
+            val fragmentTujuan = ProdukKategoriFragment().apply {
+                arguments = bundle
+            }
+            pindahKeFragment(fragmentTujuan)
         }
     }
 
@@ -74,7 +81,7 @@ class HomeFragment : Fragment() {
                 harga = "Rp 65.000",
                 hargaCoret = "Rp 80.000",
                 diskon = "18%",
-                gambarResId = R.drawable.semen_3_rode,
+                gambarResId = android.R.drawable.ic_menu_gallery,
                 isFlashSale = true
             ),
             ProdukModel(
@@ -103,13 +110,12 @@ class HomeFragment : Fragment() {
             )
         )
         rvFlashSale.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        rvFlashSale.adapter = ProdukAdapter(listFlashSale) {
-            Toast.makeText(requireContext(), "Beli: ${it.nama}", Toast.LENGTH_SHORT).show()
+        rvFlashSale.adapter = ProdukAdapter(listFlashSale) { produk ->
+            bukaDetailProduk(produk)
         }
     }
 
     private fun setupProduk() {
-        // PERBAIKAN ADA DI SINI (Menggunakan Named Arguments)
         val listProduk = listOf(
             ProdukModel(
                 nama = "Semen Gresik 40kg",
@@ -155,8 +161,33 @@ class HomeFragment : Fragment() {
             )
         )
         rvProduk.layoutManager = GridLayoutManager(requireContext(), 2)
-        rvProduk.adapter = ProdukAdapter(listProduk) {
-            Toast.makeText(requireContext(), "Beli: ${it.nama}", Toast.LENGTH_SHORT).show()
+        rvProduk.adapter = ProdukAdapter(listProduk) { produk ->
+            bukaDetailProduk(produk)
         }
+    }
+
+    private fun bukaDetailProduk(produk: ProdukModel) {
+        val bundle = Bundle().apply {
+            putString("NAMA_PRODUK", produk.nama)
+            putString("HARGA_PRODUK", produk.harga)
+            putString("RATING_PRODUK", produk.rating)
+            putString("TERJUAL_PRODUK", produk.terjual)
+            putInt("GAMBAR_PRODUK", produk.gambarResId)
+        }
+
+        val fragmentDetail = DetailProdukFragment().apply {
+            arguments = bundle
+        }
+        pindahKeFragment(fragmentDetail)
+    }
+
+    private fun pindahKeFragment(fragmentTujuan: Fragment) {
+        val parentId = (view?.parent as? ViewGroup)?.id ?: View.NO_ID
+        val targetContainerId = if (parentId != View.NO_ID) parentId else android.R.id.content
+
+        parentFragmentManager.beginTransaction()
+            .replace(targetContainerId, fragmentTujuan)
+            .addToBackStack(null)
+            .commit()
     }
 }

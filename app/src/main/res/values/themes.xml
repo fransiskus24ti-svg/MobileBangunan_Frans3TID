@@ -1,16 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Tema utama aplikasi Anda -->
-    <style name="Theme.FrnsMobile_Bangunan" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- ... kode tema Anda ... -->
+    <!-- Tema utama aplikasi Anda (Dikunci ke Light Mode) -->
+    <style name="Theme.FrnsMobile_Bangunan" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Warna Status Bar (bagian jam & baterai paling atas) -->
+        <item name="android:statusBarColor">#F8FAFC</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Warna aksen utama aplikasi -->
+        <item name="colorPrimary">#0038A8</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
     </style>
 
-    <!-- ✅ Tema Khusus Splash Screen -->
+    <!-- ✅ Tema Khusus Splash Screen (Tema Terang Modern) -->
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <!-- Warna latar belakang splash screen (Hitam Navy) -->
-        <item name="windowSplashScreenBackground">#0B132B</item>
+        <!-- Warna latar belakang splash screen (Putih Abu Lembut) -->
+        <item name="windowSplashScreenBackground">#F8FAFC</item>
 
-        <!-- Ikon yang muncul di tengah splash screen -->
-        <item name="windowSplashScreenAnimatedIcon">@drawable/bgunanni</item>
+        <!-- Ikon WestBuild yang muncul di tengah splash screen -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/wbni</item>
 
         <!-- Tema yang akan digunakan SETELAH splash screen selesai -->
         <item name="postSplashScreenTheme">@style/Theme.FrnsMobile_Bangunan</item>

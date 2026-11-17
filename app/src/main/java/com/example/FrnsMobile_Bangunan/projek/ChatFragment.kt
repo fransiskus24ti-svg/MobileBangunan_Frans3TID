@@ -125,7 +125,7 @@ class ChatFragment : Fragment() {
                 tvBadge.text = data.badge
             }
             itemView.setOnClickListener {
-                val fragment = ChatRoomFragment()
+                val fragment = RuangChatFragment()
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, fragment)
                     .addToBackStack(null) // Agar bisa kembali ke halaman Chat
